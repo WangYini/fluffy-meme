@@ -1,0 +1,1 @@
+This project will experiment how to use Natural Language Processing methods to adapt and optimize existing Web Crawling code. The idea comes from the following article https://arxiv.org/pdf/1905.03813v3.pdf https://mp.weixin.qq.com/s/B3Uv-dhB5VYJnu06N4lYBg
