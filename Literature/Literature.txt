@@ -1,0 +1,3 @@
+1) When Deep Learning Met Code Search: https://arxiv.org/pdf/1905.03813v3.pdf 
+2) 深度学习遇见代码搜索，一篇论文概览神经代码搜索: https://mp.weixin.qq.com/s/B3Uv-dhB5VYJnu06N4lYBg
+3) 我用Python爬了400个知乎上笑死人不偿命的沙雕问题: https://mp.weixin.qq.com/s/BACTZxz0OGjjDjrii4pOtQ
