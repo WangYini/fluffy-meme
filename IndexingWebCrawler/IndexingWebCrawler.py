@@ -2,6 +2,7 @@
 import requests
 import re
 from urllib.parse import urlparse
+import os
 
 
 class IndexingWebCrawler:
@@ -9,12 +10,20 @@ class IndexingWebCrawler:
         self.starting_url = starting_url
         self.visited = set()
 
+        #To get the proxy token, go to proxyorbit.com to create a new account
+        # and store the API key in System Environment Variables with name "PROXY_ORBIT_TOKEN"
+        self.proxy_orbit_key = os.getenv("PROXY_ORBIT_TOKEN")
+        self.user_agent = "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.103 Safari/537.36"
+        self.proxy_orbit_url = f"https://api.proxyorbit.com/v1/?token={self.proxy_orbit_key}&ssl=true&rtt=0.3&protocols=http&lastChecked=30"
+
     def start(self):
         self.crawl(self.starting_url)
 
     def get_html(self, url):
         try:
-            html = requests.get(url)
+            proxy_info = requests.get(self.proxy_orbit_url).json()
+            proxy = proxy_info["curl"]
+            html = requests.get(url, headers={"User-Agent":self.user_agent}, proxies={"http":proxy, "https":proxy}, timeout=5)
         except Exception as e:
             print(e)
             return ""
